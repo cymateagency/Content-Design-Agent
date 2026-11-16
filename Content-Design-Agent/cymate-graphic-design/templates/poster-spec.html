@@ -1,0 +1,55 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Cymate spec sheet</title>{{BASE_CSS}}
+<style>
+/* SPEC SHEET: one hero object treated like a product launch. Bounding box with handles, technical callouts,
+   tiny corner labels, and a ruled spec table at the bottom. Inspired by assets/inspiration/02.
+   Use it to "spec out" a cold email, a reply, a booked meeting, a domain setup, a list record. */
+.mono{font-family:'IBM Plex Mono',monospace}
+.corner{position:absolute;font-family:Inter,sans-serif;font-size:19px;font-weight:500;letter-spacing:1.5px;color:rgba(255,255,255,.82);z-index:6}
+.bb{position:absolute;border:1.5px solid rgba(255,255,255,.85);z-index:5}
+.bb i{position:absolute;width:13px;height:13px;background:#FFF;margin:-7px 0 0 -7px}
+.co{position:absolute;z-index:6;color:#FFF}
+.co .tt{font-family:Inter,sans-serif;font-size:24px;font-weight:600;letter-spacing:.5px}
+.co .ds{font-family:Inter,sans-serif;font-size:16px;letter-spacing:.6px;color:rgba(255,255,255,.7);line-height:1.35;text-transform:uppercase;margin-top:4px}
+.mail{position:absolute;font-family:Inter,Arial,sans-serif;color:#15171C;background:linear-gradient(180deg,#FFFFFF,#F2EFEC);border-radius:26px;box-sizing:border-box}
+.tbl{position:absolute;left:96px;right:96px;z-index:6;color:#FFF;font-family:Inter,sans-serif}
+.tbl .k{font-size:18px;font-weight:700;letter-spacing:1.5px;white-space:nowrap}
+.tbl .v{font-size:18px;letter-spacing:1px;color:rgba(255,255,255,.78);text-transform:uppercase;line-height:1.45}
+</style></head><body>
+<!-- Placeholder copy: replace. Keep callout titles to 1-3 words and the spec table rows to one sentence each. -->
+<div class="cm haze-none" style="width:1080px;height:1350px;background:radial-gradient(80% 60% at 55% 35%,#1C1C1E 0%,#0F0F10 55%,#070707 100%)">
+<div class="tx tx-grid" style="opacity:.55"></div>
+<!-- warm light streaks -->
+<div style="position:absolute;left:-120px;top:640px;width:620px;height:110px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,110,40,.75),rgba(255,90,0,0));filter:blur(8px);z-index:1"></div>
+<div style="position:absolute;right:-160px;top:760px;width:760px;height:90px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,170,120,.7),rgba(255,90,0,0));filter:blur(6px);z-index:1"></div>
+<div style="position:absolute;left:250px;top:300px;width:620px;height:520px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,90,0,.28),rgba(255,90,0,0));z-index:1"></div>
+{{HEADER}}
+<div class="corner" style="left:96px;top:232px">RELEVANT</div>
+<div class="corner" style="right:96px;top:232px">SHORT</div>
+<!-- out-of-focus duplicate behind for depth of field -->
+<div class="mail" style="left:350px;top:350px;width:520px;height:400px;transform:rotate(-8deg) translate(70px,-30px);filter:blur(14px);opacity:.35;z-index:2"></div>
+<!-- hero object: the email -->
+<div class="mail" style="left:340px;top:362px;width:500px;padding:30px 34px;transform:perspective(1400px) rotateY(-14deg) rotateX(6deg) rotateZ(-5deg);box-shadow:0 50px 90px rgba(0,0,0,.6),18px 0 0 -6px rgba(255,90,0,.0),inset -10px 0 30px rgba(255,120,50,.25);z-index:3">
+  <div style="display:flex;align-items:center;gap:14px"><div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#FF5A00,#FFC09A)"></div><div><div style="font-weight:700;font-size:20px">Sam from Northwind</div><div data-small style="font-size:15px;color:#85817B">to you · 9:14 AM</div></div></div>
+  <div style="margin-top:22px;font-weight:700;font-size:23px">quick question, Alex</div>
+  <div style="margin-top:12px;font-size:19px;line-height:1.5;color:#3E3B37">Saw your team just opened two new regions. Usually that means reps are prospecting into cold territory with no pipeline yet.</div>
+  <div style="margin-top:12px;font-size:19px;line-height:1.5;color:#3E3B37">Worth a look at how others fill it in the first 60 days?</div>
+</div>
+<div class="bb" style="left:308px;top:318px;width:580px;height:460px"><i style="left:0;top:0"></i><i style="left:50%;top:0"></i><i style="left:100%;top:0"></i><i style="left:0;top:50%"></i><i style="left:100%;top:50%"></i><i style="left:0;top:100%"></i><i style="left:50%;top:100%"></i><i style="left:100%;top:100%"></i></div>
+<!-- callouts -->
+<svg style="position:absolute;inset:0;z-index:6" width="1080" height="1350"><g fill="none" stroke="#FFF" stroke-width="2"><path d="M110 540 H230 L380 486"/><circle cx="380" cy="486" r="5" fill="#FFF"/><circle cx="110" cy="540" r="5" fill="#FFF"/><path d="M110 540 v22 M94 562 h32"/>
+<path d="M742 640 L800 830 H900"/><circle cx="742" cy="640" r="5" fill="#FFF"/><circle cx="900" cy="830" r="5" fill="#FFF"/><path d="M900 830 v22 M882 852 h36"/></g></svg>
+<div class="co" style="left:96px;top:528px;transform:translateY(-100%);width:200px"><div class="tt">SUBJECT LINE</div><div data-small class="ds">Reads like a colleague wrote it. Lowercase, no hype.</div></div>
+<div class="co" style="left:684px;top:866px;width:300px"><div class="tt">THE ASK</div><div data-small class="ds">One easy question. No calendar link in email one.</div></div>
+<!-- spec table -->
+<div class="tbl" style="top:948px">
+  <div style="border-top:1.5px solid rgba(255,255,255,.55);display:flex">
+    <div style="flex:1.35;padding:16px 0 14px;border-right:1.5px solid rgba(255,255,255,.55)"><img src="{{LOGO}}" alt="Cymate" style="height:30px;display:block;margin:6px 0 10px"><div style="font-family:Poppins,sans-serif;font-size:76px;font-weight:300;line-height:.95;letter-spacing:-1px">COLD EMAIL</div></div>
+    <div style="flex:1;padding:16px 0 14px 26px;text-align:right"><div style="font-size:30px;font-weight:300;letter-spacing:1px">SPEC</div><div style="font-family:Poppins,sans-serif;font-size:76px;font-weight:700;line-height:.95" class="grad-text">0001</div></div>
+  </div>
+  <div style="border-top:1.5px solid rgba(255,255,255,.55);border-bottom:1.5px solid rgba(255,255,255,.55);display:flex">
+    <div style="flex:1.35;padding:14px 22px 14px 0;border-right:1.5px solid rgba(255,255,255,.55);display:flex;gap:18px"><span class="k">BUILT ON :</span><span class="v">A real trigger, their problem, one easy ask.</span></div>
+    <div style="flex:1;padding:14px 0 14px 22px;display:flex;gap:18px"><span class="k">OUTPUT :</span><span class="v">Replies from people who can buy.</span></div>
+  </div>
+</div>
+{{SOCIAL_BAR}}
+</div></body></html>

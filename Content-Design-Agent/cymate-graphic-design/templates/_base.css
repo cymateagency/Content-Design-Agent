@@ -1,0 +1,113 @@
+/* Cymate base system (shared by every template). Change content, not these values. */
+.cm{--accent:#FF5A00;--accent-soft:rgba(255,90,0,.14);--ink:#FFFFFF;--muted:rgba(255,255,255,.72);
+  box-sizing:border-box;position:relative;overflow:hidden;color:var(--ink);font-family:Poppins,Arial,sans-serif;
+  /* Default: near-black with a soft charcoal lift and a faint warm ember. No blue anywhere. */
+  background:
+    radial-gradient(48% 34% at 0% 0%,rgba(255,255,255,.045) 0%,rgba(255,255,255,0) 100%),
+    radial-gradient(44% 30% at 100% 100%,rgba(255,90,0,.07) 0%,rgba(255,90,0,0) 100%),
+    #070707}
+.cm.haze-one{background:radial-gradient(55% 38% at 0% 100%,rgba(255,90,0,.08) 0%,rgba(255,90,0,0) 100%),#070707}
+.cm.haze-none{background:#070707}
+/* Occasional variety only: toned burnt orange (white text, near-black accents). */
+.cm.orange{--accent:#140700;--accent-soft:rgba(20,7,0,.16);background:linear-gradient(155deg,#D2560E 0%,#C24F10 50%,#A8430D 100%)}
+.cm.light{--ink:#0A0C14;--muted:#55524E;background:#F4F4F6}
+/* Off-white "paper" background for object-pun and big-type styles (warm, not grey) */
+.cm.paper{--ink:#0A0C14;--muted:#55524E;color:#0A0C14;background:radial-gradient(70% 50% at 50% 40%,#FFFFFF 0%,#F6F3EE 70%,#EFEBE4 100%)}
+/* Header swaps to the dark wordmark on light backgrounds */
+.cm .wm-d{display:none}.cm.light .wm-w,.cm.paper .wm-w{display:none}.cm.light .wm-d,.cm.paper .wm-d{display:block}
+
+/* Header: wordmark (with orange dot) top-left, mascot icon top-right */
+.hdr-wm{position:absolute;left:112px;top:134px;height:32px;z-index:5}
+.hdr-ic{position:absolute;right:104px;top:108px;height:84px;z-index:5;filter:drop-shadow(0 6px 14px rgba(0,0,0,.45))}
+
+/* Social bar */
+.sbar{position:absolute;left:164px;right:164px;bottom:108px;height:68px;border-radius:34px;background:rgba(44,45,52,.88);
+  display:flex;align-items:center;justify-content:space-around;padding:0 22px;z-index:5;font-family:Poppins,Arial,sans-serif;font-weight:600;font-size:15px;color:#FFFFFF}
+.sbar .it{display:flex;align-items:center;gap:10px}
+.orange .sbar{background:rgba(30,12,4,.55)}
+
+/* Type */
+.h{font-weight:800;letter-spacing:-1.5px;line-height:1.02}
+.h-black{font-weight:900;letter-spacing:-1px;line-height:1;text-transform:uppercase}
+.sub{font-weight:400;line-height:1.3;color:var(--ink)}
+.body{font-family:Inter,Arial,sans-serif;line-height:1.45;color:var(--muted)}
+.hl{color:var(--accent)}
+.grad-text{background:linear-gradient(135deg,#C21A00 0%,#FF5A00 45%,#FFC09A 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.chrome-text{background:linear-gradient(180deg,#FFFFFF 0%,#E3E5EA 45%,#9A9EA8 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* Pills */
+.kpill{display:inline-flex;align-items:center;border:3px solid transparent;border-radius:999px;padding:10px 28px;
+  background:linear-gradient(#07080C,#07080C) padding-box,linear-gradient(90deg,#D81E00,#FF6A1A 55%,#FFD3B8) border-box;
+  font-weight:800;font-size:30px;letter-spacing:-.3px;color:#FFFFFF;text-transform:uppercase}
+.orange .kpill{background:linear-gradient(#B9480E,#B9480E) padding-box,linear-gradient(90deg,#FFFFFF,#FFE2CF) border-box}
+.gpill{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:18px 40px;
+  background:linear-gradient(90deg,#C21A00 0%,#FF5A00 50%,#FFC09A 100%);color:#FFFFFF;font-weight:600;text-shadow:0 2px 6px rgba(80,10,0,.35)}
+
+/* Surfaces */
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.10),rgba(255,255,255,.03));border:1.5px solid rgba(255,255,255,.16);
+  border-radius:56px;box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 40px 80px rgba(0,0,0,.45);backdrop-filter:blur(14px)}
+.gframe{border:3px solid transparent;border-radius:28px;background:linear-gradient(#08090D,#08090D) padding-box,linear-gradient(90deg,#D81E00,#FF6A1A 55%,#FFD3B8) border-box}
+
+/* Textures: add one per design as an absolutely positioned layer behind the content */
+.tx{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.tx-dots{background-image:radial-gradient(circle,rgba(255,255,255,.10) 2.2px,transparent 2.6px);background-size:26px 26px;
+  -webkit-mask-image:radial-gradient(120% 80% at 50% 0%,#000 0%,rgba(0,0,0,.35) 55%,transparent 85%);mask-image:radial-gradient(120% 80% at 50% 0%,#000 0%,rgba(0,0,0,.35) 55%,transparent 85%)}
+.tx-grid{background-image:linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);background-size:54px 54px;
+  -webkit-mask-image:radial-gradient(70% 60% at 50% 45%,#000,transparent);mask-image:radial-gradient(70% 60% at 50% 45%,#000,transparent)}
+.tx-photo{background-size:cover;background-position:center;filter:grayscale(.3) brightness(.32)}
+/* Stock background: sits at 20-30% opacity (--bg-op, set by --bg-opacity) so it adds mood, never attention.
+   Usage: a div with classes tx tx-stock and an inline background-image of the BG token. */
+.tx-stock{background-size:cover;background-position:center;opacity:var(--bg-op,.25);filter:grayscale(.45) contrast(1.05) brightness(.85);
+  -webkit-mask-image:radial-gradient(90% 75% at 50% 45%,#000 30%,rgba(0,0,0,.55) 70%,transparent 100%);mask-image:radial-gradient(90% 75% at 50% 45%,#000 30%,rgba(0,0,0,.55) 70%,transparent 100%)}
+.tx-stock.full{-webkit-mask-image:none;mask-image:none}
+.content{position:absolute;z-index:2}
+.tx-grain{opacity:.07;mix-blend-mode:overlay}
+
+/* Carousel / story / thumbnail / banner helpers */
+.glow{display:none}
+.grain{position:absolute;left:0;top:0;width:100%;height:100%;opacity:.07;pointer-events:none;mix-blend-mode:overlay}
+.kicker{display:flex;align-items:center;gap:16px;font-weight:700;font-size:22px;letter-spacing:5px;color:var(--accent);text-transform:uppercase}
+.kicker:before{content:"";width:44px;height:3px;background:var(--accent);border-radius:2px}
+.orange .kicker{color:#FFFFFF}.orange .kicker:before{background:#FFFFFF}
+.ghost{position:absolute;font-weight:900;line-height:.8;color:rgba(255,255,255,.04);pointer-events:none}
+.bracket{position:absolute;width:56px;height:56px;border-color:rgba(255,255,255,.18);border-style:solid;pointer-events:none}
+.foot{position:absolute;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(255,255,255,.12);padding-top:28px}
+.handle{font-family:Inter,Arial,sans-serif;font-weight:600;font-size:20px;letter-spacing:2px;color:rgba(255,255,255,.7)}
+.pill{display:inline-flex;align-items:center;gap:12px;border-radius:999px;padding:14px 28px;font-weight:700}
+.card{background:linear-gradient(160deg,rgba(255,255,255,.09),rgba(255,255,255,.03));border:1.5px solid rgba(255,255,255,.14);border-radius:28px;box-shadow:0 30px 60px rgba(0,0,0,.45)}
+
+/* ---------- Motion utilities (animated carousels and reels) ----------
+   One global clock per slide: set --d (start time in s) inline, e.g. class="a-rise" style="--d:.4s".
+   Stills (render.py) seek every animation to the slide's still time, so the PNG shows the finished state. */
+.a-pop{animation:aPop .5s cubic-bezier(.2,1.4,.4,1) var(--d,0s) both}
+@keyframes aPop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+.a-rise{animation:aRise .6s cubic-bezier(.2,.8,.2,1) var(--d,0s) both}
+@keyframes aRise{from{opacity:0;transform:translateY(46px)}to{opacity:1;transform:none}}
+.a-slam{animation:aSlam .45s cubic-bezier(.2,.9,.25,1.1) var(--d,0s) both}
+@keyframes aSlam{from{opacity:0;transform:translateY(70px) scale(1.12)}to{opacity:1;transform:none}}
+.a-left{animation:aLeft .6s cubic-bezier(.2,.8,.2,1) var(--d,0s) both}
+@keyframes aLeft{from{opacity:0;transform:translateX(-70px)}to{opacity:1;transform:none}}
+.a-right{animation:aRight .6s cubic-bezier(.2,.8,.2,1) var(--d,0s) both}
+@keyframes aRight{from{opacity:0;transform:translateX(90px)}to{opacity:1;transform:none}}
+.a-fade{animation:aFade .5s ease var(--d,0s) both}
+@keyframes aFade{from{opacity:0}to{opacity:1}}
+.a-out{animation:aOut .35s ease var(--d,0s) both}
+@keyframes aOut{from{opacity:1;transform:none}to{opacity:0;transform:scale(.8)}}
+.a-grow{transform-origin:left center;animation:aGrow .9s cubic-bezier(.3,.8,.3,1) var(--d,0s) both}
+@keyframes aGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.a-growy{transform-origin:center bottom;animation:aGrowY .8s cubic-bezier(.3,.8,.3,1) var(--d,0s) both}
+@keyframes aGrowY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.a-draw{stroke-dasharray:var(--len,1200);animation:aDraw 1.4s cubic-bezier(.4,0,.2,1) var(--d,0s) both}
+@keyframes aDraw{from{stroke-dashoffset:var(--len,1200)}to{stroke-dashoffset:0}}
+.a-strike{position:relative}.a-strike:after{content:"";position:absolute;left:-4px;right:-4px;top:52%;height:3px;border-radius:2px;background:#FF4A3D;transform-origin:left;animation:aGrow .4s ease var(--d,0s) both}
+.a-shake{animation:aShake .5s ease var(--d,0s) 3 both}
+@keyframes aShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px) rotate(-1deg)}75%{transform:translateX(8px) rotate(1deg)}}
+/* ambient loops: keep the slide alive after the entrance */
+.a-float{animation:aFloat 4s ease-in-out var(--d,0s) infinite alternate}
+@keyframes aFloat{from{transform:translateY(0)}to{transform:translateY(-14px)}}
+.a-drift{animation:aDrift 7s ease-in-out infinite alternate}
+@keyframes aDrift{from{transform:translate(0,0) scale(1)}to{transform:translate(-40px,30px) scale(1.08)}}
+.a-nudge{animation:aNudge 1.2s ease-in-out var(--d,0s) infinite}
+@keyframes aNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(12px)}}
+.a-pulse{animation:aPulse 1.8s ease-in-out var(--d,0s) infinite}
+@keyframes aPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,90,0,.45)}50%{box-shadow:0 0 0 14px rgba(255,90,0,0)}}

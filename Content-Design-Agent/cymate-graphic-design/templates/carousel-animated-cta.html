@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>CR03 slide 6</title>
+<meta name="reel-duration" content="6"><meta name="reel-cover" content="3.5"><meta name="still-time" content="4.5">
+<meta name="reel-sfx" content="0.15:thud, 1.3:pop, 1.48:pop, 1.66:pop, 1.84:pop, 2.2:ding">
+{{BASE_CSS}}
+<style>
+.blob{position:absolute;border-radius:50%;pointer-events:none}
+.mono{font-family:'IBM Plex Mono',monospace}
+.kk{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:21px;letter-spacing:5px;color:rgba(255,255,255,.78)}
+.H{font-family:Poppins,sans-serif;font-weight:300;letter-spacing:-2.5px;line-height:1.02;font-size:84px}
+.H b{font-weight:800}
+.B{font-family:Inter,sans-serif;font-size:31px;line-height:1.42;color:var(--muted)}
+.gl{background:linear-gradient(135deg,rgba(255,255,255,.10),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.14);border-radius:30px;box-shadow:0 30px 70px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.12);backdrop-filter:blur(16px)}
+.chip{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:9px 18px;font-family:Inter,sans-serif;font-weight:700;font-size:20px}
+.ok{background:rgba(29,185,84,.16);color:#4BE38A;border:1px solid rgba(75,227,138,.35)}
+.no{background:rgba(255,74,61,.14);color:#FF7A6E;border:1px solid rgba(255,122,110,.35)}
+.step{font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:22px;letter-spacing:4px;color:#FF7A33}
+
+</style></head><body>
+<!-- ANIMATED CAROUSEL CTA SLIDE (1080x1350, 6s). Headline rises, recap chips pop one by one, CTA pill lands last with a ding, mascot slides in.
+     Placeholder copy from CR03: replace it. Update the page counter, the active progress dot and the reel-sfx cues (seconds:effect) to match the motion. Render all slides with: python3 scripts/make_carousel.py slides/ out/name.pdf --video -->
+<div class="cm haze-one" style="width:1080px;height:1350px">
+<div class="blob a-drift" style="width:900px;height:760px;right:-380px;top:-260px;background:radial-gradient(closest-side,rgba(255,90,0,.38),rgba(255,90,0,0))"></div>
+<div class="blob" style="width:700px;height:600px;left:-360px;bottom:-260px;background:radial-gradient(closest-side,rgba(194,26,0,.30),rgba(194,26,0,0))"></div>
+<div class="tx tx-dots" style="opacity:.35"></div>
+<svg class="grain" aria-hidden="true"><filter id="gr"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0"/></filter><rect width="100%" height="100%" filter="url(#gr)"/></svg>
+<div style="position:absolute;left:96px;top:96px;display:flex;align-items:center;gap:18px;z-index:5"><span class="a-grow" style="width:48px;height:4px;border-radius:2px;background:var(--accent);--d:.1s"></span><span class="mono" style="font-size:20px;font-weight:600;letter-spacing:3px;color:rgba(255,255,255,.6)">06 / 06</span></div>
+<img src="{{ICON}}" alt="" style="position:absolute;right:88px;top:70px;height:74px;z-index:5">
+
+<div style="position:absolute;left:96px;right:96px;top:250px;z-index:4">
+  <div class="kk a-fade" style="--d:.05s">NOT SURE WHERE YOU STAND?</div>
+  <div class="H a-rise" style="--d:.15s;margin-top:28px;font-size:90px">We’ll run all<br>four checks<br><b class="grad-text" style="padding-right:6px">for you.</b></div>
+  <div style="margin-top:44px;display:flex;flex-wrap:wrap;gap:14px;max-width:640px"><span class="chip ok a-pop" style="--d:1.30s;font-size:22px;padding:12px 22px"><svg width="18" height="18" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Authentication</span><span class="chip ok a-pop" style="--d:1.48s;font-size:22px;padding:12px 22px"><svg width="18" height="18" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Warmup</span><span class="chip ok a-pop" style="--d:1.66s;font-size:22px;padding:12px 22px"><svg width="18" height="18" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Volume</span><span class="chip ok a-pop" style="--d:1.84s;font-size:22px;padding:12px 22px"><svg width="18" height="18" viewBox="0 0 16 16"><path d="M3 8.5l3 3 7-7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>List quality</span></div>
+  <span class="gpill a-pop" style="--d:2.2s;margin-top:54px;font-size:32px;display:inline-flex">Book a call · link in bio</span>
+</div>
+<img class="a-right" src="{{MASCOT}}" alt="" style="--d:.6s;position:absolute;right:-60px;bottom:250px;width:440px;transform:rotate(-10deg);z-index:2;filter:drop-shadow(0 30px 50px rgba(0,0,0,.6))">
+
+<div class="foot" style="left:96px;right:96px;bottom:72px;z-index:5"><img src="{{LOGO}}" alt="Cymate" style="height:30px"><div style="display:flex;gap:10px;align-items:center"><span style="width:10px;height:10px;border-radius:5px;background:rgba(255,255,255,.28)" class="" ></span><span style="width:10px;height:10px;border-radius:5px;background:rgba(255,255,255,.28)" class="" ></span><span style="width:10px;height:10px;border-radius:5px;background:rgba(255,255,255,.28)" class="" ></span><span style="width:10px;height:10px;border-radius:5px;background:rgba(255,255,255,.28)" class="" ></span><span style="width:10px;height:10px;border-radius:5px;background:rgba(255,255,255,.28)" class="" ></span><span style="width:34px;height:10px;border-radius:5px;background:var(--accent)" class="a-grow" ></span></div></div>
+</div></body></html>

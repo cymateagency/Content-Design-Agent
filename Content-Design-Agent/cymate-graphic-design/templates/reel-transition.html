@@ -1,0 +1,123 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Cymate reel: educational to pivot</title>
+<meta name="reel-duration" content="15">
+<meta name="reel-cover" content="1.4">
+<meta name="reel-music" content="style=drive; bpm=118; drop=9.62; key=A">
+<meta name="reel-sfx" content="0.1:pop, 0.3:thud, 0.55:thud, 2.7:tick, 2.8:thud, 4.9:tick, 5.0:thud, 7.1:tick, 7.2:thud, 8.3:riser, 9.2:whoosh, 9.62:impact, 9.75:thud, 9.95:thud, 10.6:pop, 10.9:pop, 11.2:pop, 12.9:ding, 13.7:pop">
+{{BASE_CSS}}
+<style>
+/* ---------- Reel timeline ----------
+   One global clock. Every element uses animation-delay = the second it starts.
+   Scene wrappers: .sc with --in and --out (seconds). Change times here, not in make_reel.py.
+   Safe zones (1080x1920): keep text between y=260 and y=1540, and clear of the right 150px below y=1100
+   (Reels buttons). Key hook text sits inside the centre 1080x1350 so the grid crop still reads. */
+.sc{position:absolute;inset:0;opacity:0;animation:scIn .28s ease-out var(--in) both,scOut .28s ease-in var(--out) forwards}
+@keyframes scIn{from{opacity:0}to{opacity:1}}
+@keyframes scOut{from{opacity:1;transform:scale(1);filter:blur(0)}to{opacity:0;transform:scale(1.08);filter:blur(8px)}}
+.pop{animation:pop .45s cubic-bezier(.2,1.4,.4,1) var(--d) both}
+@keyframes pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+.slam{animation:slam .38s cubic-bezier(.2,.9,.25,1.1) var(--d) both}
+@keyframes slam{from{opacity:0;transform:translateY(80px) scale(1.15)}to{opacity:1;transform:none}}
+.rise{animation:rise .5s ease-out var(--d) both}
+@keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+.drift{animation:drift 3s linear var(--d) both}
+@keyframes drift{from{transform:scale(1)}to{transform:scale(1.06)}}
+.bar{animation:bar .9s cubic-bezier(.3,.8,.3,1) var(--d) both;transform-origin:left}
+@keyframes bar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+/* Transition: orange gradient wipe carrying the mascot */
+.wipe{position:absolute;left:-30%;top:-10%;width:160%;height:120%;z-index:20;
+  background:linear-gradient(100deg,#C21A00 0%,#FF5A00 45%,#FFC09A 100%);transform:translateX(-120%) skewX(-12deg);
+  animation:wipe .9s cubic-bezier(.7,0,.3,1) var(--d) both}
+@keyframes wipe{0%{transform:translateX(-120%) skewX(-12deg)}45%,55%{transform:translateX(0) skewX(-12deg)}100%{transform:translateX(120%) skewX(-12deg)}}
+.wipe-m{position:absolute;left:50%;top:50%;width:520px;margin:-260px 0 0 -260px;z-index:21;opacity:0;
+  animation:wipeM .9s cubic-bezier(.7,0,.3,1) var(--d) both;filter:drop-shadow(0 30px 60px rgba(60,10,0,.5))}
+@keyframes wipeM{0%{opacity:0;transform:translateX(-900px) rotate(-20deg)}40%{opacity:1}50%{opacity:1;transform:translateX(0) rotate(0) scale(1.1)}60%{opacity:1}100%{opacity:0;transform:translateX(900px) rotate(18deg)}}
+.flash{position:absolute;inset:0;background:#fff;z-index:22;opacity:0;animation:flash .25s ease-out var(--d) both}
+@keyframes flash{0%{opacity:0}30%{opacity:.85}100%{opacity:0}}
+.ghost{position:absolute;right:70px;top:250px;font-family:Unbounded,Poppins,sans-serif;font-weight:900;font-size:420px;line-height:1;color:rgba(255,255,255,.05)}
+.tiphead{font-size:96px}
+.cap{font-family:Inter,Arial,sans-serif;font-size:44px;line-height:1.35;color:var(--muted)}
+/* Reels overlays: push the frame clear of the app's top label and bottom caption */
+.hdr-wm{top:247px}.hdr-ic{top:226px}.sbar{bottom:400px}
+.chip{display:inline-flex;align-items:center;gap:16px;padding:22px 34px;border-radius:999px;font-weight:700;font-size:40px}
+</style></head><body>
+<!-- REEL TEMPLATE (1080x1920, 15s). Structure: hook (0-2.6s) → 3 educational beats (2.6-9.2s) →
+     branded transition (9.2-10.1s) → Cymate pivot (10.1-12.8s) → end card + CTA (12.8-15s).
+     All copy below is placeholder: replace it. Keep the education genuinely useful on its own (about 60-70% of
+     runtime) so the pivot feels earned. Render with scripts/make_reel.py; add --bg-video or --bg for a faded
+     stock layer. Pick the transition style from references/reels.md; the mascot wipe below is the default.
+     SOUND: reel-music sets the generated bed (drop = the transition's impact time, so the beat opens up on the pivot);
+     reel-sfx lists "seconds:effect" cues. When you move an animation, move its cue to the same second. -->
+<div class="cm haze-one" style="width:1080px;height:1920px">
+<div class="tx tx-dots" style="opacity:.6"></div>
+{{HEADER}}
+
+<!-- 1. HOOK -->
+<div class="sc" style="--in:0s;--out:2.35s">
+  <div class="content drift" style="--d:0s;left:96px;right:96px;top:520px">
+    <span class="kpill pop" style="--d:.1s;font-size:34px">POV</span>
+    <div class="h slam" style="--d:.3s;margin-top:40px;font-size:128px">Your cold emails</div>
+    <div class="h slam" style="--d:.55s;font-size:128px">are going to <span class="grad-text">spam.</span></div>
+    <div class="cap rise" style="--d:1.0s;margin-top:44px">3 reasons, in 10 seconds.</div>
+  </div>
+</div>
+
+<!-- 2-4. EDUCATIONAL BEATS -->
+<div class="sc" style="--in:2.6s;--out:4.55s">
+  <div class="ghost">01</div>
+  <div class="content" style="left:96px;right:96px;top:560px">
+    <div class="kicker rise" style="--d:2.7s;font-size:30px">Reason 1</div>
+    <div class="h tiphead slam" style="--d:2.8s;margin-top:28px">Brand-new domains, <span class="grad-text">zero warmup.</span></div>
+    <div class="cap rise" style="--d:3.2s;margin-top:36px">Inboxes don’t trust a sender they’ve never seen.</div>
+    <div class="glass rise" style="--d:3.4s;margin-top:60px;border-radius:32px;padding:30px 34px;font-family:Inter,sans-serif">
+      <div style="display:flex;justify-content:space-between;font-size:28px;color:var(--muted)"><span>Inbox placement</span><span style="color:#FF7A6A;font-weight:700">31%</span></div>
+      <div style="margin-top:16px;height:18px;border-radius:9px;background:rgba(255,255,255,.08);overflow:hidden"><div class="bar" style="--d:3.6s;width:31%;height:100%;border-radius:9px;background:linear-gradient(90deg,#C21A00,#FF5A00)"></div></div>
+    </div>
+  </div>
+</div>
+<div class="sc" style="--in:4.8s;--out:6.75s">
+  <div class="ghost">02</div>
+  <div class="content" style="left:96px;right:96px;top:560px">
+    <div class="kicker rise" style="--d:4.9s;font-size:30px">Reason 2</div>
+    <div class="h tiphead slam" style="--d:5.0s;margin-top:28px">One inbox doing <span class="grad-text">300 a day.</span></div>
+    <div class="cap rise" style="--d:5.4s;margin-top:36px">Spread volume across many warmed senders instead.</div>
+  </div>
+</div>
+<div class="sc" style="--in:7.0s;--out:8.95s">
+  <div class="ghost">03</div>
+  <div class="content" style="left:96px;right:96px;top:560px">
+    <div class="kicker rise" style="--d:7.1s;font-size:30px">Reason 3</div>
+    <div class="h tiphead slam" style="--d:7.2s;margin-top:28px">Links, images and <span class="grad-text">tracking pixels.</span></div>
+    <div class="cap rise" style="--d:7.6s;margin-top:36px">Plain text gets read. Heavy HTML gets filtered.</div>
+  </div>
+</div>
+
+<!-- 5. TRANSITION (mascot wipe) -->
+<div class="wipe" style="--d:9.2s"></div>
+<img class="wipe-m" src="{{MASCOT}}" alt="" style="--d:9.2s">
+<div class="flash" style="--d:9.62s"></div>
+
+<!-- 6. PIVOT -->
+<div class="sc" style="--in:9.65s;--out:12.55s">
+  <div class="content" style="left:96px;right:96px;top:470px">
+    <div class="h slam" style="--d:9.75s;font-size:112px">Or skip the</div>
+    <div class="h slam" style="--d:9.95s;font-size:112px"><span class="grad-text">guesswork.</span></div>
+    <div class="cap rise" style="--d:10.3s;margin-top:40px;color:#fff">Cymate builds, warms and runs your cold outbound.</div>
+    <div style="margin-top:60px;display:flex;flex-direction:column;gap:22px;align-items:flex-start">
+      <span class="chip glass pop" style="--d:10.6s">Inboxes set up and warmed</span>
+      <span class="chip glass pop" style="--d:10.9s">Lists and copy that fit</span>
+      <span class="chip gpill pop" style="--d:11.2s;font-size:40px">Meetings on your calendar</span>
+    </div>
+  </div>
+</div>
+
+<!-- 7. END CARD -->
+<div class="sc" style="--in:12.8s;--out:99s">
+  <div class="content" style="left:96px;right:96px;top:440px;display:flex;flex-direction:column;align-items:center;text-align:center">
+    <img class="pop" src="{{LOCKUP}}" alt="Cymate" style="--d:12.9s;width:420px">
+    <div class="h rise" style="--d:13.3s;margin-top:70px;font-size:76px">Want this done <span class="grad-text">for you?</span></div>
+    <span class="gpill pop" style="--d:13.7s;margin-top:50px;font-size:40px">Book a call · link in bio</span>
+  </div>
+  {{SOCIAL_BAR}}
+</div>
+</div>
+</body></html>

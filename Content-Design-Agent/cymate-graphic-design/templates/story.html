@@ -1,0 +1,14 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Cymate story / reel cover</title>
+{{BASE_CSS}}</head><body>
+<!-- Story / Reel cover, 1080x1920. Keep the top 250px and bottom 340px free of text (app overlays). For Reel covers, keep the key text inside the centre 1080x1350 so the grid crop still reads. -->
+<div class="cm" style="width:1080px;height:1920px;padding:0 96px">
+<div class="glow" style="right:-400px;top:200px"></div>
+<svg class="grain" aria-hidden="true"><filter id="gr"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0"/></filter><rect width="100%" height="100%" filter="url(#gr)"/></svg>
+<div style="position:absolute;left:96px;right:96px;top:285px;bottom:340px;display:flex;flex-direction:column;justify-content:center">
+  <img src="{{LOGO}}" alt="Cymate" style="height:38px;align-self:flex-start">
+  <div class="kicker" style="margin-top:80px;font-size:28px">Deliverability</div>
+  <div class="h" style="margin-top:40px;font-size:150px">Warm before<br>you <span class="hl">send.</span></div>
+  <div class="body" style="margin-top:44px;font-size:46px">New domains need time. Rushing them costs the whole campaign.</div>
+</div>
+</div>
+</body></html>

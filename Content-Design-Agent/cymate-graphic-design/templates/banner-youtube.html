@@ -1,0 +1,51 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Cymate YouTube banner</title>{{BASE_CSS}}
+<style>
+/* YouTube banner 2560x1440. Safe area (all devices) = centre 1546x423: x 507-2053, y 508-931.
+   Desktop shows the full-width strip y 508-931; TV shows everything. Essentials stay inside the safe area. */
+.note{position:absolute;box-sizing:border-box;border-radius:30px;padding:24px 28px;font-family:Inter,Arial,sans-serif;color:#fff;
+  background:linear-gradient(135deg,rgba(255,255,255,.13),rgba(255,255,255,.05));border:1px solid rgba(255,255,255,.18);backdrop-filter:blur(18px);
+  box-shadow:0 40px 80px rgba(0,0,0,.55),0 8px 18px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.22)}
+.note .top{display:flex;align-items:center;gap:14px;font-size:22px;font-weight:600;color:rgba(255,255,255,.7)}
+.note .ic{flex:none;width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center}
+.note .bd{margin-top:12px;font-size:27px;line-height:1.35;font-weight:500}
+</style></head><body>
+<div class="cm haze-none" style="width:2560px;height:1440px;background:#070707">
+<!-- atmosphere (TV + desktop) -->
+<div style="position:absolute;left:-400px;top:-300px;width:1400px;height:1100px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.04),rgba(255,255,255,0))"></div>
+<div style="position:absolute;left:1500px;top:150px;width:1500px;height:1100px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,90,0,.40),rgba(255,90,0,.12) 55%,rgba(255,90,0,0))"></div>
+<div style="position:absolute;left:300px;top:700px;width:1200px;height:700px;border-radius:50%;background:radial-gradient(closest-side,rgba(194,26,0,.22),rgba(194,26,0,0))"></div>
+<svg style="position:absolute;inset:0" width="2560" height="1440" viewBox="0 0 2560 1440">
+  <defs><linearGradient id="rb" x1="0" x2="1"><stop offset="0" stop-color="#FF5A00" stop-opacity="0"/><stop offset=".35" stop-color="#FF7A33" stop-opacity=".55"/><stop offset=".7" stop-color="#FFC09A" stop-opacity=".45"/><stop offset="1" stop-color="#FF5A00" stop-opacity="0"/></linearGradient>
+  <filter id="b" x="-10%" y="-80%" width="120%" height="260%"><feGaussianBlur stdDeviation="16"/></filter></defs>
+  <path d="M-100 1010 C 500 860, 900 1100, 1400 930 S 2200 700, 2700 820" fill="none" stroke="url(#rb)" stroke-width="90" filter="url(#b)"/>
+  <path d="M-100 1050 C 500 900, 900 1140, 1400 970 S 2200 740, 2700 860" fill="none" stroke="#FFD9C2" stroke-opacity=".28" stroke-width="2.5"/>
+  <path d="M-100 470 C 600 560, 1200 380, 1800 470 S 2400 560, 2700 500" fill="none" stroke="#FFFFFF" stroke-opacity=".12" stroke-width="2"/>
+  <circle cx="1802" cy="471" r="10" fill="#FF5A00"/><circle cx="1802" cy="471" r="22" fill="#FF5A00" opacity=".22"/>
+</svg>
+<div class="tx tx-dots" style="opacity:.35"></div>
+<svg class="grain" aria-hidden="true"><filter id="gr"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.6 0"/></filter><rect width="100%" height="100%" filter="url(#gr)"/></svg>
+
+<!-- SAFE AREA: brand + promise -->
+<img src="{{MASCOT}}" alt="" style="position:absolute;left:560px;top:556px;height:300px;z-index:4;filter:drop-shadow(0 30px 40px rgba(0,0,0,.6)) drop-shadow(0 6px 8px rgba(0,0,0,.4))">
+<div class="content" style="left:930px;top:560px;z-index:4">
+  <img src="{{LOGO}}" alt="Cymate" style="height:56px;display:block">
+  <div style="margin-top:30px;font-family:Poppins,sans-serif;font-weight:300;font-size:92px;letter-spacing:-3px;line-height:1">Cold outbound,<br><b class="grad-text" style="font-weight:800;padding-right:10px">done for you.</b></div>
+  <div style="margin-top:28px;font-family:'IBM Plex Mono',monospace;font-weight:600;font-size:24px;letter-spacing:5px;color:rgba(255,255,255,.72)">INFRASTRUCTURE · LISTS · COPY · REPLIES</div>
+</div>
+<!-- SAFE AREA right: proof cards -->
+<div class="note" style="left:1660px;top:548px;width:370px;transform:rotate(-3deg);z-index:5">
+  <div class="top"><div class="ic" style="background:rgba(255,90,0,.22)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF7A33" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg></div>New reply</div>
+  <div class="bd">“Sounds interesting. Free Thursday?”</div>
+</div>
+<div class="note" style="left:1712px;top:744px;width:320px;transform:rotate(2deg);z-index:6">
+  <div class="top"><div class="ic" style="background:rgba(29,185,84,.2)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#4BE38A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4M9 15l2 2 4-4"/></svg></div>Meeting booked</div>
+  <div class="bd" style="font-weight:700">Thu · 11:00 AM</div>
+</div>
+<!-- DESKTOP-ONLY flex areas (decorative, nothing essential) -->
+<div class="note" style="left:2120px;top:600px;width:330px;transform:rotate(4deg);opacity:.55;z-index:3">
+  <div class="top"><div class="ic" style="background:rgba(255,255,255,.08)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c2 3 5 4.5 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5.3 1.6 1 2.5 2 3 0-3 0-5 1-7.5z"/></svg></div>Inboxes warmed</div>
+</div>
+<div class="note" style="left:110px;top:640px;width:330px;transform:rotate(-4deg);opacity:.5;z-index:3">
+  <div class="top"><div class="ic" style="background:rgba(255,255,255,.08)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l2.5 2.5L16 9"/><rect x="3.5" y="3.5" width="17" height="17" rx="3"/></svg></div>List verified</div>
+</div>
+</div></body></html>

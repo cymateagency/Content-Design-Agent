@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>AWA animated carousel cover</title>
+<meta name="reel-duration" content="6"><meta name="reel-cover" content="0"><meta name="still-time" content="4.0">
+<meta name="reel-sfx" content="1.0:pop, 1.4:pop, 1.8:pop">
+{{BASE_CSS}}
+<style>.chip{display:inline-flex;align-items:center;gap:14px;border-radius:999px;padding:16px 30px;font-weight:600;font-size:32px}</style></head><body>
+<!-- ANIMATED CAROUSEL COVER (on request; static carousels are the default). 1080x1350, 6s.
+     Cover rule: headline and hero visible at frame 0 (Instagram uses frame 0 as the thumbnail). Animate only secondary details.
+     Placeholder copy: replace it. Render all slides with: python3 scripts/make_carousel.py slides/ out/name.pdf --video -->
+<div class="aw" style="width:1080px;height:1350px">
+<div class="blur-glow a-drift" style="width:900px;height:700px;left:90px;bottom:-420px;background:rgba(207,1,1,.45)"></div>
+{{HEADER}}
+<div class="content" style="left:96px;right:96px;top:300px">
+  <div class="kicker">Recognition rhythms</div>
+  <div class="h" style="margin-top:40px;font-size:118px">Recognition isn’t an event.<br><span class="it-red">It’s a rhythm.</span></div>
+</div>
+<div class="content" style="left:96px;top:880px;display:flex;flex-direction:column;gap:20px;align-items:flex-start">
+  <span class="chip glass a-pop" style="--d:1.0s">Weekly: say it out loud</span>
+  <span class="chip glass a-pop" style="--d:1.4s">Monthly: make it visible</span>
+  <span class="chip pill-red a-pop" style="--d:1.8s">Yearly: make it official</span>
+</div>
+<div class="foot" style="left:96px;right:96px;bottom:84px"><span class="count">1 / 5</span><div class="swipe">Swipe <i class="a-nudge" style="--d:2.2s"><svg width="30" height="20" viewBox="0 0 30 20"><path d="M2 10h24M18 3l8 7-8 7" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div></div>
+</div></body></html>

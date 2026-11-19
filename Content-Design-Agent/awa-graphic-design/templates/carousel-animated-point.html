@@ -1,0 +1,22 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>AWA animated carousel point</title>
+<meta name="reel-duration" content="6"><meta name="reel-cover" content="3.5"><meta name="still-time" content="4.0">
+<meta name="reel-sfx" content="0.15:whoosh, 1.2:tick, 1.6:tick, 2.0:tick, 2.5:pop">
+{{BASE_CSS}}
+<style>.step{display:flex;align-items:center;gap:24px;font-size:40px;font-weight:600}
+.step b{flex:none;width:58px;height:58px;border-radius:50%;background:#FFFFFF;color:#CF0101;display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800}</style></head><body>
+<!-- ANIMATED CAROUSEL POINT SLIDE (on request). 1080x1350, 6s. Text in by ~0.8s, the visual builds from ~1s, settled by ~3s,
+     then ambient motion. One point per slide. Placeholder copy: replace it. Update the count and the reel-sfx cues. -->
+<div class="aw glow-corner" style="width:1080px;height:1350px">
+<div class="ghost" aria-hidden="true" style="right:-60px;top:900px;font-size:520px">01</div>
+<div class="content" style="left:96px;right:96px;top:250px">
+  <div class="kicker a-fade" style="--d:.05s">Weekly</div>
+  <div class="h a-rise" style="--d:.15s;margin-top:28px;font-size:88px">Say it <span class="it-red">out loud.</span></div>
+  <div class="body a-rise" style="--d:.45s;margin-top:28px;font-size:40px;max-width:840px">Recognition only counts if the person actually hears it.</div>
+</div>
+<div class="redpanel a-left" style="--d:.8s;position:absolute;left:96px;right:96px;top:760px;border-radius:44px;padding:48px 52px;box-sizing:border-box;display:flex;flex-direction:column;gap:30px;box-shadow:0 14px 28px rgba(0,0,0,.3),0 40px 80px rgba(0,0,0,.45)">
+  <div class="step a-rise" style="--d:1.2s"><b>1</b>Name the person</div>
+  <div class="step a-rise" style="--d:1.6s"><b>2</b>Name the moment</div>
+  <div class="step a-rise" style="--d:2.0s"><b>3</b>Say why it mattered</div>
+</div>
+<div class="foot" style="left:96px;right:96px;bottom:84px"><img src="{{LOGO}}" alt="Agency Workplaces" style="height:40px"><span class="count">2 / 5</span></div>
+</div></body></html>

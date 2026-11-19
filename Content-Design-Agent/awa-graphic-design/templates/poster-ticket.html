@@ -1,0 +1,23 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>AWA ticket poster</title>{{BASE_CSS}}
+<style>
+.ticket{position:absolute;left:84px;right:84px;top:230px;bottom:300px;border-radius:50px;padding:84px 76px;box-sizing:border-box;
+  background:radial-gradient(ellipse 110% 80% at 15% 0%,#CF0101 0%,#CF0101 55%,rgba(207,1,1,.82) 100%),#000;
+  -webkit-mask:radial-gradient(circle 58px at 0 70%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 58px at 100% 70%,transparent 98%,#000) right/51% 100% no-repeat;
+  mask:radial-gradient(circle 58px at 0 70%,transparent 98%,#000) left/51% 100% no-repeat,radial-gradient(circle 58px at 100% 70%,transparent 98%,#000) right/51% 100% no-repeat}
+</style></head><body>
+<!-- STYLE: Ticket (from the awa-posts format static-ticket). BOF: a golden-ticket metaphor for nominations, deadlines or applying.
+     SLOTS: small top line (<= 3 words) · ticket title (2 lines, bold) · two stub details (left/right, 2 short lines each) · CTA pill (stage CTA)
+     Award name/year and the real deadline come from the request only; otherwise keep [YEAR]/[DATE] and flag them.
+     TODO: swap in the Workplace Award badge when the file exists. -->
+<div class="aw glow-top" style="width:1080px;height:1350px">
+{{HEADER}}
+<div class="ticket" style="filter:drop-shadow(0 40px 60px rgba(0,0,0,.55))">
+  <div style="font-size:36px;font-weight:600;letter-spacing:2px;opacity:.88">ADMIT ONE AGENCY</div>
+  <div class="display" style="font-size:128px;margin-top:22px">Workplace<br>Award [YEAR]</div>
+  <div style="position:absolute;left:76px;right:76px;top:70%;border-top:5px dashed rgba(255,255,255,.6)"></div>
+  <div style="position:absolute;left:76px;right:76px;bottom:64px;display:flex;justify-content:space-between;font-size:36px;line-height:1.25">
+    <span><span style="font-weight:300">Seat:</span> earned,<br>not bought</span><span style="text-align:right">Nominations<br><b>close [DATE]</b></span>
+  </div>
+</div>
+<div class="content" style="left:0;right:0;bottom:140px;text-align:center"><span class="pill pill-white">Nominate your agency</span></div>
+</div></body></html>

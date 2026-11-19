@@ -1,0 +1,78 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>AWA reel: teach, then pivot</title>
+<meta name="reel-duration" content="15">
+<meta name="reel-cover" content="1.4">
+<meta name="reel-music" content="style=chill; bpm=96; drop=9.62; key=A">
+<meta name="reel-sfx" content="0.1:pop, 0.3:thud, 0.55:thud, 2.7:tick, 2.8:thud, 4.9:tick, 5.0:thud, 7.1:tick, 7.2:thud, 8.3:riser, 9.2:whoosh, 9.62:impact, 9.75:thud, 9.95:thud, 10.6:pop, 10.9:pop, 11.2:pop, 12.9:ding, 13.7:pop">
+{{BASE_CSS}}
+<style>
+/* One global clock. Scene wrappers: .sc with --in and --out (seconds). Every element: animation-delay = the second it starts.
+   Safe zones (1080x1920): text between y=260 and y=1540, clear of the right 150px below y=1100. */
+.sc{position:absolute;inset:0;opacity:0;animation:scIn .28s ease-out var(--in) both,scOut .28s ease-in var(--out) forwards}
+@keyframes scIn{from{opacity:0}to{opacity:1}}
+@keyframes scOut{from{opacity:1;transform:scale(1);filter:blur(0)}to{opacity:0;transform:scale(1.08);filter:blur(8px)}}
+.pop{animation:pop .45s cubic-bezier(.2,1.4,.4,1) var(--d) both}
+@keyframes pop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+.slam{animation:slam .38s cubic-bezier(.2,.9,.25,1.1) var(--d) both}
+@keyframes slam{from{opacity:0;transform:translateY(80px) scale(1.15)}to{opacity:1;transform:none}}
+.rise{animation:rise .5s ease-out var(--d) both}
+@keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+/* Transition: a red panel wipes across carrying a white AWA hexagon (signature device), then a soft flash */
+.wipe{position:absolute;left:-30%;top:-10%;width:160%;height:120%;z-index:20;background:#CF0101;transform:translateX(-120%) skewX(-12deg);
+  animation:wipe .9s cubic-bezier(.7,0,.3,1) var(--d) both}
+@keyframes wipe{0%{transform:translateX(-120%) skewX(-12deg)}45%,55%{transform:translateX(0) skewX(-12deg)}100%{transform:translateX(120%) skewX(-12deg)}}
+.wipe-h{position:absolute;left:50%;top:50%;width:360px;height:414px;margin:-207px 0 0 -180px;z-index:21;background:#FFFFFF;opacity:0;
+  animation:wipeH .9s cubic-bezier(.7,0,.3,1) var(--d) both}
+@keyframes wipeH{0%{opacity:0;transform:translateX(-900px) rotate(-30deg)}40%{opacity:1}50%{opacity:1;transform:none scale(1.1)}60%{opacity:1}100%{opacity:0;transform:translateX(900px) rotate(30deg)}}
+.flash{position:absolute;inset:0;background:#fff;z-index:22;opacity:0;animation:flash .25s ease-out var(--d) both}
+@keyframes flash{0%{opacity:0}30%{opacity:.85}100%{opacity:0}}
+.num{position:absolute;right:70px;top:250px;font-weight:800;font-size:420px;line-height:1;color:transparent;-webkit-text-stroke:5px rgba(207,1,1,.5)}
+.cap{font-size:44px;line-height:1.35;font-weight:300;color:var(--muted)}
+.hdr-lg{top:250px}
+.chip{display:inline-flex;align-items:center;gap:16px;padding:22px 34px;border-radius:999px;font-weight:600;font-size:40px}
+</style></head><body>
+<!-- REEL TEMPLATE. 1080x1920, 15s. Hook (0-2.6s) → 3 teaching beats (2.6-9.2s)
+     → hex-wipe transition (9.2-10.1s) → AWA pivot (10.1-12.8s) → end card + CTA (12.8-15s).
+     All copy is placeholder. Keep the lesson useful on its own (60-70% of runtime). Never open with the brand.
+     Render: python3 scripts/make_reel.py reel.html out/name.mp4 --preview -->
+<div class="aw" style="width:1080px;height:1920px">
+{{HEADER}}
+<div class="sc" style="--in:0s;--out:2.35s">
+  <div class="content" style="left:96px;right:96px;top:520px">
+    <span class="kpill pop" style="--d:.1s;font-size:34px">POV</span>
+    <div class="h slam" style="--d:.3s;margin-top:40px;font-size:124px">Your best people</div>
+    <div class="h slam" style="--d:.55s;font-size:124px">feel <span class="it-red">invisible.</span></div>
+    <div class="cap rise" style="--d:1.0s;margin-top:44px">3 quiet signs, in 10 seconds.</div>
+  </div>
+</div>
+<div class="sc" style="--in:2.6s;--out:4.55s"><div class="num">01</div>
+  <div class="content" style="left:96px;right:96px;top:560px"><div class="kicker rise" style="--d:2.7s;font-size:30px">Sign 1</div>
+  <div class="h slam" style="--d:2.8s;margin-top:28px;font-size:96px">They stop <span class="it-red">pitching ideas.</span></div>
+  <div class="cap rise" style="--d:3.2s;margin-top:36px">Silence in the brainstorm is a signal.</div></div></div>
+<div class="sc" style="--in:4.8s;--out:6.75s"><div class="num">02</div>
+  <div class="content" style="left:96px;right:96px;top:560px"><div class="kicker rise" style="--d:4.9s;font-size:30px">Sign 2</div>
+  <div class="h slam" style="--d:5.0s;margin-top:28px;font-size:96px">They skip <span class="it-red">the extras.</span></div>
+  <div class="cap rise" style="--d:5.4s;margin-top:36px">No more volunteering for the pitch.</div></div></div>
+<div class="sc" style="--in:7.0s;--out:8.95s"><div class="num">03</div>
+  <div class="content" style="left:96px;right:96px;top:560px"><div class="kicker rise" style="--d:7.1s;font-size:30px">Sign 3</div>
+  <div class="h slam" style="--d:7.2s;margin-top:28px;font-size:96px">“I’m fine” sounds <span class="it-red">rehearsed.</span></div>
+  <div class="cap rise" style="--d:7.6s;margin-top:36px">Ask again, and mean it.</div></div></div>
+<div class="wipe" style="--d:9.2s"></div><div class="wipe-h hex" style="--d:9.2s"></div><div class="flash" style="--d:9.62s"></div>
+<div class="sc" style="--in:9.65s;--out:12.55s">
+  <div class="content" style="left:96px;right:96px;top:470px">
+    <div class="h slam" style="--d:9.75s;font-size:112px">Notice early.</div>
+    <div class="h slam" style="--d:9.95s;font-size:112px"><span class="it-red">Recognize often.</span></div>
+    <div style="margin-top:60px;display:flex;flex-direction:column;gap:22px;align-items:flex-start">
+      <span class="chip glass pop" style="--d:10.6s">Say it out loud</span>
+      <span class="chip glass pop" style="--d:10.9s">Make it specific</span>
+      <span class="chip pill-red pop" style="--d:11.2s">Make it a rhythm</span>
+    </div>
+  </div>
+</div>
+<div class="sc" style="--in:12.8s;--out:99s">
+  <div class="content" style="left:96px;right:96px;top:520px;display:flex;flex-direction:column;align-items:center;text-align:center">
+    <img class="pop" src="{{LOGO}}" alt="Agency Workplaces" style="--d:12.9s;width:520px">
+    <div class="h rise" style="--d:13.3s;margin-top:70px;font-size:76px">Follow for more <span class="it-red">agency truths.</span></div>
+    <span class="pill pill-white pop" style="--d:13.7s;margin-top:50px">Follow us</span>
+  </div>
+</div>
+</div></body></html>

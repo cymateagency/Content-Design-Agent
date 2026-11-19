@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>AWA carousel content slide</title>{{BASE_CSS}}
+<style>
+.ghostv{position:absolute;left:-20px;top:0;bottom:0;writing-mode:vertical-rl;transform:rotate(180deg);font-size:300px;font-weight:800;line-height:1;text-align:center;
+  letter-spacing:-.03em;color:transparent;-webkit-text-stroke:5px rgba(207,1,1,.75)}
+</style></head><body>
+<!-- Carousel middle slide (from the awa-posts format carousel-ghost-word), 1080x1350. One point per slide: a giant outlined
+     ghost word running up the left edge, heading, short body, page count, arrow.
+     SLOTS: ghost word (1 word, <= 7 letters, aria-hidden) · heading (<= 5 words) · body (<= 25 words) · count
+     Outlined ghost words must read on a phone: thick stroke, never a hairline (taste.md). Ghost = "never said" in that format:
+     keep the labels consistent with the device's logic. -->
+<div class="aw glow-corner" style="width:1080px;height:1350px">
+<div class="ghostv" aria-hidden="true" data-edge>TRUST</div>
+<div class="content" style="left:430px;right:96px;top:400px">
+  <div class="h" style="font-size:84px">Let go<br>of the reins</div>
+  <div class="body" style="font-size:42px;margin-top:36px">Micromanaging says “I don’t trust you” louder than any memo ever could.</div>
+</div>
+<div class="foot" style="left:430px;right:96px;bottom:84px"><span class="count">2 / 5</span><div class="swipe"><i><svg width="30" height="20" viewBox="0 0 30 20"><path d="M2 10h24M18 3l8 7-8 7" fill="none" stroke="#FFFFFF" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"/></svg></i></div></div>
+</div></body></html>

@@ -1,0 +1,53 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>AWA scroll phone poster</title>{{BASE_CSS}}
+<style>
+.panel{position:absolute;left:470px;top:610px;width:760px;height:900px;border-radius:220px 0 0 0;
+  background:radial-gradient(ellipse 100% 80% at 20% 0%,#CF0101 0%,#CF0101 50%,rgba(207,1,1,.55) 100%),#000;
+  box-shadow:0 40px 90px rgba(0,0,0,.5),inset 0 2px 0 rgba(255,255,255,.18)}
+.head{position:absolute;left:96px;top:200px;font-size:118px;line-height:.98;letter-spacing:-.05em;z-index:3}
+.subl{position:absolute;left:100px;top:600px;font-size:46px;line-height:1.2;z-index:3}
+.phone{position:absolute;left:580px;top:540px;width:430px;height:900px;border-radius:64px;background:#000;padding:16px;box-sizing:border-box;
+  transform:rotate(7deg);box-shadow:0 12px 24px rgba(0,0,0,.4),0 50px 90px rgba(0,0,0,.6),0 0 0 3px rgba(255,255,255,.18);z-index:2}
+.screen{position:relative;width:100%;height:100%;border-radius:50px;background:#FFFFFF;overflow:hidden;color:#000}
+.notch{position:absolute;left:50%;top:14px;width:120px;height:34px;border-radius:20px;background:#000;transform:translateX(-50%)}
+.bar{border-radius:10px;background:rgba(0,0,0,.09)}
+.ui{position:absolute;left:30px;right:30px}
+.row{display:flex;align-items:center;gap:16px;padding:20px 0;border-bottom:2px solid rgba(0,0,0,.06)}
+.dot{width:54px;height:54px;border-radius:14px;background:rgba(0,0,0,.08);flex:none}
+.blurred{filter:blur(5px)}
+.timer{position:absolute;left:836px;top:466px;width:190px;height:190px;border-radius:50%;background:#000;z-index:4;
+  box-shadow:0 20px 50px rgba(0,0,0,.55),0 0 60px rgba(207,1,1,.45)}
+.timer svg{position:absolute;inset:0}
+.tip{position:absolute;left:96px;top:830px;width:max-content;padding:42px 44px 46px;border-radius:48px;z-index:5}
+.tip p{font-size:37px;line-height:1.25;font-weight:300;margin:0}
+</style></head><body>
+<!-- STYLE: Scroll phone (from the awa-posts format static-scroll-phone, CP-003). TOF (MOF with a "learn how" CTA in the caption).
+     A hook about first impressions, proven on a phone mid-scroll. The phone shows the thing being judged (careers page, job ad,
+     LinkedIn post); a glass tip card overlaps it with the one practical fix. The ring = time running out (no number unless sourced).
+     SLOTS: headline (3 lines: bold / light / light-italic red, max ~7 words) · subline (2 lines, light + bold, max ~8 words) ·
+     screen (hero line <= 3 words, 2 sharp rows <= 16 chars, blurred rows) · tip (4 short lines <= 24 chars, key phrase bold).
+     The CTA goes in the caption (max 3 text levels on the static). Screen UI text is mock UI: marked data-small. -->
+<div class="aw glow-corner" style="width:1080px;height:1350px">
+<div class="blur-glow" style="left:-200px;top:1080px;width:760px;height:320px;background:rgba(207,1,1,.4);transform:rotate(-12deg)"></div>
+{{HEADER}}
+<div class="head"><b style="font-weight:800">Top talent</b><br><span style="font-weight:300">decides in</span><br><span class="it-red">one scroll.</span></div>
+<div class="subl"><span style="font-weight:300">Show your culture,</span><br><b style="font-weight:700">or lose the hire.</b></div>
+<div class="panel"></div>
+<div class="phone"><div class="screen" data-small>
+  <div class="notch"></div>
+  <div class="ui" style="top:76px;display:flex;justify-content:space-between;align-items:center"><div class="bar" style="width:120px;height:26px"></div><div class="bar" style="width:38px;height:22px"></div></div>
+  <div class="ui" style="top:140px;height:230px;border-radius:28px;background:linear-gradient(150deg,rgba(0,0,0,.12),rgba(0,0,0,.22));padding:30px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-end">
+    <div style="font-size:40px;font-weight:700;letter-spacing:-.03em">We’re hiring.</div><div class="bar" style="width:70%;height:14px;margin-top:12px"></div></div>
+  <div class="ui" style="top:398px">
+    <div class="row"><div class="dot"></div><div style="flex:1"><div style="font-size:26px;font-weight:600">Senior Designer</div><div class="bar" style="width:55%;height:12px;margin-top:8px"></div></div></div>
+    <div class="row"><div class="dot"></div><div style="flex:1"><div style="font-size:26px;font-weight:600">Account Manager</div><div class="bar" style="width:45%;height:12px;margin-top:8px"></div></div></div>
+  </div>
+  <div class="ui blurred" style="top:600px">
+    <div class="row"><div class="dot"></div><div style="flex:1"><div class="bar" style="width:75%;height:20px"></div><div class="bar" style="width:50%;height:12px;margin-top:10px"></div></div></div>
+    <div class="row"><div class="dot"></div><div style="flex:1"><div class="bar" style="width:65%;height:20px"></div><div class="bar" style="width:40%;height:12px;margin-top:10px"></div></div></div>
+  </div>
+</div></div>
+<div class="timer"><svg viewBox="0 0 190 190"><circle cx="95" cy="95" r="80" fill="none" stroke="rgba(255,255,255,.14)" stroke-width="12"/><circle cx="95" cy="95" r="80" fill="none" stroke="#CF0101" stroke-width="12" stroke-linecap="round" stroke-dasharray="168 503" transform="rotate(-90 95 95)"/></svg>
+  <svg viewBox="0 0 190 190"><path d="M95 58 V128 M66 100 L95 129 L124 100" fill="none" stroke="#FFFFFF" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+<div class="tip glass"><div class="hex" style="width:44px;height:50px;background:#CF0101;margin-bottom:22px"></div>
+  <p>Your careers page<br>should answer<br><b style="font-weight:700;white-space:nowrap">“Why would I stay here?”</b><br>right away.</p></div>
+</div></body></html>

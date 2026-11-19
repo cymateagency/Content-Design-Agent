@@ -1,0 +1,142 @@
+/* AWA base system (shared by every template). Change content, not these values.
+   Palette: AWA Red #CF0101 (accent), Black #000000 and White #FFFFFF (base).
+   Two limited extras: Bright red #FF3B3B (red text on black only) and Paper #F6F1EA (scrapbook and letter posts only). Nothing else.
+   Fonts: Poppins (default, everything), Anton (big condensed statement headlines, all caps), Caveat (short handwritten notes only).
+   The deep maroon look is NOT a colour: it is red light fading into black (see references/backgrounds.md). */
+.aw{--red:#CF0101;--red-bright:#FF3B3B;--black:#000000;--white:#FFFFFF;--paper:#F6F1EA;
+  --font:Poppins,Arial,sans-serif;--display:Anton,'Arial Narrow',sans-serif;--hand:Caveat,cursive;
+  --accent:var(--red);--accent-text:var(--red-bright);--ink:var(--white);--muted:rgba(255,255,255,.72);
+  box-sizing:border-box;position:relative;overflow:hidden;color:var(--ink);font-family:Poppins,Arial,sans-serif;letter-spacing:-.02em;
+  /* Default ("soft glow"): black, with red light rising from below and fading into black. */
+  background:
+    radial-gradient(ellipse 120% 62% at 50% 108%,rgba(207,1,1,.62) 0%,rgba(207,1,1,.26) 42%,rgba(207,1,1,0) 78%),
+    radial-gradient(ellipse 60% 30% at 92% 0%,rgba(207,1,1,.16) 0%,rgba(207,1,1,0) 70%),
+    #000000}
+/* Glow variants: same light, different source */
+.aw.glow-corner{background:radial-gradient(ellipse 80% 55% at 100% 100%,rgba(207,1,1,.55) 0%,rgba(207,1,1,.2) 45%,rgba(207,1,1,0) 80%),#000000}
+.aw.glow-top{background:radial-gradient(ellipse 120% 55% at 50% -8%,rgba(207,1,1,.5) 0%,rgba(207,1,1,.18) 45%,rgba(207,1,1,0) 80%),#000000}
+.aw.black{background:#000000}
+/* Solid AWA Red (white text, black accents). Use the all-white logo here. */
+.aw.red{--accent:var(--black);--accent-text:#FFFFFF;--muted:rgba(255,255,255,.86);background:
+  radial-gradient(ellipse 90% 60% at 20% 0%,rgba(255,255,255,.10) 0%,rgba(255,255,255,0) 70%),
+  radial-gradient(ellipse 90% 60% at 90% 110%,rgba(0,0,0,.28) 0%,rgba(0,0,0,0) 70%),#CF0101}
+/* White (light) background: black text, red accent, soft red glow in one corner. */
+.aw.white{--ink:var(--black);--accent-text:var(--red);--muted:rgba(0,0,0,.62);color:#000000;background:
+  radial-gradient(ellipse 70% 50% at 95% 100%,rgba(207,1,1,.12) 0%,rgba(207,1,1,0) 75%),#FFFFFF}
+/* Paper: scrapbook and letter posts ONLY (torn notes, polaroids, letters). Black text, red accent, dark logo. */
+.aw.paper{--ink:var(--black);--accent-text:var(--red);--muted:rgba(0,0,0,.62);color:#000000;background:#F6F1EA}
+/* Header logo swaps by background: light (white words) on dark, dark (black words) on white, all-white on red */
+.aw .lg-d,.aw .lg-w{display:none}
+.aw.white .lg-l,.aw.paper .lg-l{display:none}.aw.white .lg-d,.aw.paper .lg-d{display:block}
+.aw.red .lg-l{display:none}.aw.red .lg-w{display:block}
+
+/* Header: logo top-left, small, with its own breathing room (taste: logo smaller, space above the copy) */
+.hdr-lg{position:absolute;left:96px;top:96px;height:48px;width:auto;z-index:5}
+
+
+/* Type: Poppins by default. Mix light (300) and bold (700/800) in one headline.
+   Anton (.display) for big condensed statement headlines, all caps. Caveat (.hand) for short handwritten notes and stickers,
+   never inside a headline (taste.md). */
+.display{font-family:var(--display);font-weight:400;letter-spacing:0;text-transform:uppercase;line-height:.98}
+.hand{font-family:var(--hand);font-weight:700;letter-spacing:0}
+.h{font-weight:800;letter-spacing:-.045em;line-height:1.0}
+.h-light{font-weight:300;letter-spacing:-.04em;line-height:1.02}
+.sub{font-weight:300;line-height:1.25;color:var(--ink)}
+.body{font-weight:400;line-height:1.42;color:var(--muted)}
+.hl{color:var(--accent-text)}
+.it-red{font-weight:300;font-style:italic;color:var(--accent-text)}  /* accent word: light italic red (taste.md) */
+/* Red text on black/dark always uses Bright red #FF3B3B (--accent-text does this). On white and paper it's AWA Red; on red it's white. */
+
+/* Pills */
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:12px;border-radius:999px;padding:18px 44px;font-weight:700;font-size:34px;letter-spacing:-.01em}
+.pill-red{background:var(--red);color:#FFFFFF;box-shadow:0 18px 44px rgba(207,1,1,.35)}
+.pill-white{background:#FFFFFF;color:var(--red);box-shadow:0 18px 44px rgba(0,0,0,.30)}
+.pill-black{background:#000000;color:#FFFFFF;box-shadow:0 18px 44px rgba(0,0,0,.30)}
+.kpill{display:inline-flex;align-items:center;border-radius:999px;padding:10px 28px;font-weight:600;font-size:28px;letter-spacing:0;
+  border:2px solid var(--red);color:var(--ink)}
+.red .kpill{border-color:#FFFFFF}
+
+/* Surfaces */
+.glass{background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.06));border:2px solid rgba(255,255,255,.34);
+  border-radius:56px;box-shadow:inset 0 1px 0 rgba(255,255,255,.28),0 14px 28px rgba(0,0,0,.28),0 40px 80px rgba(0,0,0,.40);
+  backdrop-filter:blur(28px);-webkit-backdrop-filter:blur(28px)}
+.card{background:#FFFFFF;color:#000000;border-radius:44px;box-shadow:0 10px 18px rgba(0,0,0,.14),0 34px 70px rgba(0,0,0,.22)}
+.redpanel{background:radial-gradient(ellipse 120% 90% at 20% 0%,#CF0101 0%,#CF0101 45%,rgba(207,1,1,.0) 100%),#000000}
+
+/* Signature devices (brand.md): use one or two per post, not all */
+.hex{clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.pennant{clip-path:polygon(0 0,100% 0,88% 50%,100% 100%,0 100%);background:#FFFFFF;color:var(--red);padding:4px 64px 8px 26px}
+.namebar{background:var(--red);color:#FFFFFF;font-weight:700;padding:14px 30px}
+.diamonds{background-image:linear-gradient(45deg,rgba(255,255,255,.10) 1.5px,transparent 1.5px),linear-gradient(-45deg,rgba(255,255,255,.10) 1.5px,transparent 1.5px);background-size:46px 46px}
+.white .diamonds{background-image:linear-gradient(45deg,rgba(0,0,0,.08) 1.5px,transparent 1.5px),linear-gradient(-45deg,rgba(0,0,0,.08) 1.5px,transparent 1.5px)}
+.qframe{position:absolute;border:3px solid rgba(255,255,255,.7);border-radius:48px;pointer-events:none;
+  clip-path:polygon(0 0,62% 0,62% 8px,100% 8px,100% 100%,0 100%)} /* quote frame, top-right corner left open: move the 62% to tune the gap */
+.white .qframe{border-color:rgba(0,0,0,.6)}
+
+/* Photos */
+.photo{position:absolute;object-fit:cover}
+.photo-placeholder{position:absolute;box-sizing:border-box;background:linear-gradient(160deg,#2a2a2a,#0c0c0c);display:flex;align-items:center;justify-content:center;
+  text-align:center;padding:40px;color:rgba(255,255,255,.55);font-size:30px;font-weight:500}
+
+/* Textures: add at most one per design as an absolutely positioned layer behind the content */
+.tx{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:0}
+.tx-diamonds{background-image:linear-gradient(45deg,rgba(255,255,255,.06) 1.5px,transparent 1.5px),linear-gradient(-45deg,rgba(255,255,255,.06) 1.5px,transparent 1.5px);background-size:46px 46px;
+  -webkit-mask-image:radial-gradient(90% 70% at 50% 30%,#000 0%,rgba(0,0,0,.35) 60%,transparent 90%);mask-image:radial-gradient(90% 70% at 50% 30%,#000 0%,rgba(0,0,0,.35) 60%,transparent 90%)}
+.tx-hexes{background-image:radial-gradient(circle,rgba(255,255,255,.08) 2px,transparent 2.4px);background-size:28px 28px;
+  -webkit-mask-image:radial-gradient(120% 80% at 50% 0%,#000 0%,rgba(0,0,0,.35) 55%,transparent 85%);mask-image:radial-gradient(120% 80% at 50% 0%,#000 0%,rgba(0,0,0,.35) 55%,transparent 85%)}
+.tx-photo{background-size:cover;background-position:center;filter:grayscale(.3) brightness(.32)}
+/* Stock background: 20-30% opacity (--bg-op, set by --bg-opacity) so it adds mood, never attention.
+   Usage: a div with classes tx tx-stock and an inline background-image of the BG token. */
+.tx-stock{background-size:cover;background-position:center;opacity:var(--bg-op,.25);filter:grayscale(.6) contrast(1.05) brightness(.8);
+  -webkit-mask-image:radial-gradient(90% 75% at 50% 45%,#000 30%,rgba(0,0,0,.55) 70%,transparent 100%);mask-image:radial-gradient(90% 75% at 50% 45%,#000 30%,rgba(0,0,0,.55) 70%,transparent 100%)}
+.tx-stock.full{-webkit-mask-image:none;mask-image:none}
+.blur-glow{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none}
+.content{position:absolute;z-index:2}
+.tx-grain{opacity:.06;mix-blend-mode:overlay}
+
+/* Carousel helpers */
+.kicker{display:flex;align-items:center;gap:16px;font-weight:600;font-size:24px;letter-spacing:4px;color:var(--ink);text-transform:uppercase}
+.kicker:before{content:"";width:44px;height:4px;background:var(--red);border-radius:2px}
+.red .kicker{color:#FFFFFF}.red .kicker:before{background:#FFFFFF}
+.ghost{position:absolute;font-weight:800;line-height:.8;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:4px rgba(207,1,1,.55);pointer-events:none}
+.foot{position:absolute;display:flex;justify-content:space-between;align-items:center}
+.count{font-weight:500;font-size:26px;letter-spacing:1px;color:var(--muted)}
+.swipe{display:flex;align-items:center;gap:16px;font-size:32px;font-weight:700}
+.swipe i{width:58px;height:58px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px rgba(207,1,1,.35)}
+.red .swipe i{background:#FFFFFF}
+
+/* ---------- Motion utilities (animated carousels and reels) ----------
+   One global clock per slide: set --d (start time in s) inline, e.g. class="a-rise" style="--d:.4s".
+   Stills (render.py) seek every animation to the slide's still time, so the PNG shows the finished state. */
+.a-pop{animation:aPop .5s cubic-bezier(.2,1.4,.4,1) var(--d,0s) both}
+@keyframes aPop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+.a-rise{animation:aRise .6s cubic-bezier(.2,.8,.2,1) var(--d,0s) both}
+@keyframes aRise{from{opacity:0;transform:translateY(46px)}to{opacity:1;transform:none}}
+.a-slam{animation:aSlam .45s cubic-bezier(.2,.9,.25,1.1) var(--d,0s) both}
+@keyframes aSlam{from{opacity:0;transform:translateY(70px) scale(1.12)}to{opacity:1;transform:none}}
+.a-left{animation:aLeft .6s cubic-bezier(.2,.8,.2,1) var(--d,0s) both}
+@keyframes aLeft{from{opacity:0;transform:translateX(-70px)}to{opacity:1;transform:none}}
+.a-right{animation:aRight .6s cubic-bezier(.2,.8,.2,1) var(--d,0s) both}
+@keyframes aRight{from{opacity:0;transform:translateX(90px)}to{opacity:1;transform:none}}
+.a-fade{animation:aFade .5s ease var(--d,0s) both}
+@keyframes aFade{from{opacity:0}to{opacity:1}}
+.a-out{animation:aOut .35s ease var(--d,0s) both}
+@keyframes aOut{from{opacity:1;transform:none}to{opacity:0;transform:scale(.8)}}
+.a-grow{transform-origin:left center;animation:aGrow .9s cubic-bezier(.3,.8,.3,1) var(--d,0s) both}
+@keyframes aGrow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.a-growy{transform-origin:center bottom;animation:aGrowY .8s cubic-bezier(.3,.8,.3,1) var(--d,0s) both}
+@keyframes aGrowY{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+.a-draw{stroke-dasharray:var(--len,1200);animation:aDraw 1.4s cubic-bezier(.4,0,.2,1) var(--d,0s) both}
+@keyframes aDraw{from{stroke-dashoffset:var(--len,1200)}to{stroke-dashoffset:0}}
+.a-strike{position:relative}.a-strike:after{content:"";position:absolute;left:-4px;right:-4px;top:52%;height:4px;border-radius:2px;background:#CF0101;transform-origin:left;animation:aGrow .4s ease var(--d,0s) both}
+.a-shake{animation:aShake .5s ease var(--d,0s) 3 both}
+@keyframes aShake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px) rotate(-1deg)}75%{transform:translateX(8px) rotate(1deg)}}
+/* ambient loops: keep the slide alive after the entrance */
+.a-float{animation:aFloat 4s ease-in-out var(--d,0s) infinite alternate}
+@keyframes aFloat{from{transform:translateY(0)}to{transform:translateY(-14px)}}
+.a-drift{animation:aDrift 7s ease-in-out infinite alternate}
+@keyframes aDrift{from{transform:translate(0,0) scale(1)}to{transform:translate(-40px,30px) scale(1.08)}}
+.a-nudge{animation:aNudge 1.2s ease-in-out var(--d,0s) infinite}
+@keyframes aNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(12px)}}
+.a-pulse{animation:aPulse 1.8s ease-in-out var(--d,0s) infinite}
+@keyframes aPulse{0%,100%{box-shadow:0 0 0 0 rgba(207,1,1,.45)}50%{box-shadow:0 0 0 14px rgba(207,1,1,0)}}

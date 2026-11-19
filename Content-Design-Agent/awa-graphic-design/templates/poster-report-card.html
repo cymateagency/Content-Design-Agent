@@ -1,0 +1,27 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>AWA report card poster</title>{{BASE_CSS}}
+<style>
+.sheet{position:absolute;left:84px;right:84px;top:200px;bottom:110px;background:#FFFFFF;color:#000;border-radius:28px;overflow:hidden;transform:rotate(-1.5deg);
+  box-shadow:0 12px 20px rgba(0,0,0,.25),0 50px 90px rgba(0,0,0,.45)}
+.row{display:flex;justify-content:space-between;align-items:center;border-bottom:3px dashed rgba(0,0,0,.18);padding:16px 0;font-size:42px}
+.grade{font-family:var(--display);font-size:84px;line-height:1;letter-spacing:0}
+.fail{color:#CF0101}
+</style></head><body>
+<!-- STYLE: Report card (from the awa-posts format static-report-card). TOF humour: shallow perks get A's, the things that
+     matter get D/F. Anton title and grades, Caveat teacher note. White sheet (paper is for scrapbook and letter posts only).
+     SLOTS: card title (<= 3 words) · subtitle line · 4 rows (item <= 3 words, grade) · teacher note (<= 4 words, Caveat, red) -->
+<div class="aw" style="width:1080px;height:1350px">
+{{HEADER}}
+<div class="sheet">
+  <div style="background:#CF0101;color:#fff;padding:60px 72px 40px">
+    <div class="display" style="font-size:104px">Culture report card</div>
+    <div style="font-size:36px;font-weight:300;margin-top:14px">Agency: yours · Term: Q4</div>
+  </div>
+  <div style="padding:16px 72px 0">
+    <div class="row"><span>Free snacks</span><span class="grade">A+</span></div>
+    <div class="row"><span>Ping pong table</span><span class="grade">A</span></div>
+    <div class="row"><span>Team recognition</span><span class="grade fail">F</span></div>
+    <div class="row" style="border:0"><span>Clear growth paths</span><span class="grade fail">D</span></div>
+  </div>
+  <div class="hand" style="position:absolute;left:72px;bottom:36px;font-size:84px;color:#CF0101;transform:rotate(-3deg);white-space:nowrap">See me after class.</div>
+</div>
+</div></body></html>

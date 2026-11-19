@@ -1,0 +1,25 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>AWA lock screen poster</title>{{BASE_CSS}}
+<style>
+.notif{background:rgba(255,255,255,.94);color:#000;border-radius:44px;padding:30px 38px;font-size:36px;line-height:1.3;margin-bottom:22px;display:flex;gap:28px;align-items:center;
+  box-shadow:0 8px 16px rgba(0,0,0,.18),0 30px 60px rgba(0,0,0,.35)}
+.notif .app{width:84px;height:84px;border-radius:22px;background:#000;flex:none;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:34px}
+.notif small{display:block;font-size:26px;opacity:.55}
+</style></head><body>
+<!-- STYLE: Lock screen (from the awa-posts format static-lockscreen). TOF. A fake phone lock screen with 2-3 notifications
+     that tell a tiny agency story, then a one-line payoff.
+     SLOTS: day + time · notifications (app, time, message) x2-3 · payoff headline (bold, last word(s) in .it-red or .hl)
+     Generic apps only (chat, mail, a jobs network), drawn as plain letter tiles, no real app logos. Invented first names only,
+     never with job titles or company names. -->
+<div class="aw glow-corner" style="width:1080px;height:1350px">
+{{HEADER}}
+<div class="content" style="left:0;right:0;top:210px;text-align:center">
+  <div style="font-size:34px;font-weight:400;color:var(--muted)">Monday, 9:02 AM</div>
+  <div style="font-size:210px;font-weight:300;line-height:1;letter-spacing:-.05em">9:02</div>
+</div>
+<div class="content" style="left:72px;right:72px;top:520px">
+  <div class="notif"><span class="app">#</span><span><small>Team chat · now</small>Mia left #design-team</span></div>
+  <div class="notif"><span class="app">#</span><span><small>Team chat · 2m ago</small>Jordan left #design-team</span></div>
+  <div class="notif" style="opacity:.78"><span class="app">in</span><span><small>Jobs · 5m ago</small>Jordan started a new position</span></div>
+</div>
+<div class="content h" style="left:96px;right:96px;bottom:110px;font-size:72px;line-height:1.05">The exits started long before the <span class="it-red" style="font-weight:300">notifications.</span></div>
+</div></body></html>

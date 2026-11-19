@@ -1,0 +1,20 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>AWA soft glow poster</title>{{BASE_CSS}}
+<style>
+.stack{position:absolute;left:0;right:0;text-align:center;z-index:3}
+.halo{position:absolute;left:50%;transform:translateX(-50%);border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.30),rgba(255,255,255,0) 65%)}
+</style></head><body>
+<!-- STYLE: Soft glow (AWA default look, from CP-002). Black with red light rising from below, a big rounded Poppins headline
+     (bold + light, one light-italic red accent word), one subline, one pill, and a real-world hero at the bottom with depth
+     (photo cut-out, device, or a blurred-to-sharp crowd). Max 3 text levels.
+     SLOTS: headline line 1 (bold, <= 2 words) · line 2 (light, accent word in .it-red, <= 3 words) · subline (light lead-in + bold payoff, <= 7 words) · pill (<= 3 words, stage CTA)
+     Placeholder copy: replace it, never ship it. Hero photo: pass --photo (a cut-out PNG the user supplied) or keep the placeholder. -->
+<div class="aw" style="width:1080px;height:1350px">
+<div class="tx tx-hexes" style="opacity:.6"></div>
+{{HEADER}}
+<div class="stack" style="top:250px"><div class="h" style="font-size:170px">Be seen</div></div>
+<div class="stack" style="top:420px"><span class="h-light" style="font-size:112px"><span class="it-red">for</span> the right <b style="font-weight:800">things</b></span></div>
+<div class="stack" style="top:580px"><div class="sub" style="font-size:44px">Recognition your team <b style="font-weight:700">actually feels</b></div></div>
+<div class="stack" style="top:680px"><span class="pill pill-white">Save this</span></div>
+<div class="halo" style="top:820px;width:760px;height:620px"></div>
+<div class="photo-placeholder" style="left:240px;right:240px;top:860px;bottom:0;border-radius:300px 300px 0 0;z-index:2">PHOTO: cut-out of a smiling team member, lit from below (pass --photo)</div>
+</div></body></html>
